@@ -55,7 +55,5 @@ class Intro(Room):
                   """))
             self.list_items()
 
-    def listItems(self):
-        print("There are items in here.")
 
 Intro().enter()

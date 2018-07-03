@@ -14,11 +14,14 @@ class Room(object):
     def list_items(self):
         # First, list all items in the room
         print("You see:")
-        for item in self.items:
-            if (item["taken"] is False):
-                print("> A {}: {}".format(item["name"], item["description"]))
-        # Next, list take-able items
-        for item in self.items:
-            counter = 1
-            if (item["taken"] is False):
-                print("> {}. Take {}".format(counter, item["name"])) 
+        if (len(self.items) < 1):
+            print("Nothing of note.")
+        else:
+            for item in self.items:
+                if (item["taken"] is False):
+                    print("> A {}: {}".format(item["name"], item["description"]))
+            # Next, list take-able items
+            for item in self.items:
+                counter = 1
+                if (item["taken"] is False):
+                    print("> {}. Take {}".format(counter, item["name"])) 
