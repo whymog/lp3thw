@@ -57,7 +57,8 @@ class Room(object):
                 print("Took {}.".format(items_to_take[choice - 1]["name"]))
             elif choice == 0:
                 # Go back to room description
-                pass
+                self.enter()
             else:
                 # Display an error
-                pass
+                print("Didn't quite get that, sorry.")
+                self.list_items()
