@@ -51,9 +51,10 @@ class Room(object):
                 print("• 0. Don't take anything")
             
             choice = self.try_int_input("> ")
-            if choice > 0 and choice < len(items_to_take) - 1:
+
+            if choice > 0 and choice - 1 < len(items_to_take):
                 # Take that item
-                pass
+                print("Took {}.".format(items_to_take[choice - 1]["name"]))
             elif choice == 0:
                 # Go back to room description
                 pass
