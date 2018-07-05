@@ -48,6 +48,7 @@ class Intro(Room):
                   and my things: boots, a navy blue overcoat,
                   my backpack leaning against the doorway, its top open, empty.
                   """))
+            self.entered = True
             self.list_items()
         else:
             print(dedent("""
