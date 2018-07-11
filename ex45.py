@@ -26,6 +26,13 @@ class Intro(Room):
                 "taken": False
             }
         ]
+        self.exits = [
+            {
+                "id": 1,
+                "name": "Hallway"
+            }
+        ]
+
 
     def enter(self):
         if self.entered is False:
@@ -49,12 +56,12 @@ class Intro(Room):
                   my backpack leaning against the doorway, its top open, empty.
                   """))
             self.entered = True
-            self.list_items()
+            self.actions()
         else:
             print(dedent("""
                   My room. Couldn't hurt to take one last look around.
                   """))
-            self.list_items()
+            self.actions()
 
 
 Intro().enter()

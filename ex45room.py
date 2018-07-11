@@ -5,6 +5,7 @@ class Room(object):
     def __init__(self):
         self.entered = False
         self.items = []
+        self.exits = []
 
     def enter(self):
         print("This room hasn't been written yet.")
@@ -15,13 +16,13 @@ class Room(object):
         try:
             int_input = int(input(prompt))
             return int_input
-        except:
+        except ValueError:
             return self.try_int_input("Please enter a number.\n> ")
 
     def actions(self):
         print("\n1. I decided to look around.")
         print("2. Time to move on.")
-        choice = input("> ")
+        choice = self.try_int_input("> ")
         if choice == 1:
             self.list_items()
         elif choice == 2:
@@ -62,3 +63,9 @@ class Room(object):
                 # Display an error
                 print("Didn't quite get that, sorry.")
                 self.list_items()
+
+    def list_exits(self):
+        print("From here, you can move to:")
+        for exit in self.exits:
+            print(exit)
+            print("{}. {}".format(exit.id, exit.name))
