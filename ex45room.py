@@ -20,7 +20,7 @@ class Room(object):
             return self.try_int_input("Please enter a number.\n> ")
 
     def actions(self):
-        print("\n1. I decided to look around.")
+        print("1. I decided to look around.")
         print("2. Time to move on.")
         choice = self.try_int_input("> ")
         if choice == 1:
@@ -33,7 +33,7 @@ class Room(object):
 
     def list_items(self):
         # First, list all items in the room
-        print("You see:")
+        print("\nYou see:\n")
         if (len(self.items) < 1):
             print("Nothing of note.")
         else:
@@ -48,8 +48,8 @@ class Room(object):
                 counter = 1
                 if (item["taken"] is False):
                     items_to_take.append(item)
-                    print("• {}. Take {}".format(counter, item["name"]))
-                print("• 0. Don't take anything")
+                    print("{}. Take {}".format(counter, item["name"]))
+                print("0. Don't take anything")
             
             choice = self.try_int_input("> ")
 
@@ -68,4 +68,4 @@ class Room(object):
         print("From here, you can move to:")
         for exit in self.exits:
             print(exit)
-            print("{}. {}".format(exit.id, exit.name))
+            print("{}. {}".format(exit["id"], exit["name"]))

@@ -11,6 +11,15 @@ class Engine(object):
         self.inventory = []
         self.MAX_INVENTORY_SIZE = 3
 
+    def add_to_inventory(self, item, fallback):
+        if len(self.inventory) < self.MAX_INVENTORY_SIZE:
+            # add to Inventory
+            print(f"Added {item.name} to inventory.")
+        else:
+            print("Your inventory is full! You're already holding:")
+            for inv_item in self.inventory:
+                print("> {}".format(inv_item.name))
+
     def play(self):
         current_room = self.start_room.opening
 
@@ -37,6 +46,10 @@ class Intro(Room):
     def enter(self):
         if self.entered is False:
             print(dedent("""
+                  ================
+                     MY BEDROOM
+                  ================
+
                   The sun hadn't even begun to crest the cedars, but somehow my
                   body knew. Time doesn't wait for a fool to make up their mind.
 
@@ -58,7 +71,11 @@ class Intro(Room):
             self.entered = True
             self.actions()
         else:
-            print(dedent("""
+            print(dedent(""" 
+                  ================
+                     MY BEDROOM
+                  ================
+
                   My room. Couldn't hurt to take one last look around.
                   """))
             self.actions()
