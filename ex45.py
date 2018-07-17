@@ -16,7 +16,7 @@ class Engine(object):
             # add to Inventory
             print(f"Added {item.name} to inventory.")
         else:
-            print("Your inventory is full! You're already holding:")
+            print("No room left in my bag. I was already carrying:")
             for inv_item in self.inventory:
                 print("> {}".format(inv_item.name))
 

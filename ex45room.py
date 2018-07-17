@@ -28,12 +28,12 @@ class Room(object):
         elif choice == 2:
             self.list_exits()
         else:
-            print("I'm not sure what that meant. Let me try again.")
+            print("Wait, that's not what I did. Let me think...")
             self.actions()
 
     def list_items(self):
         # First, list all items in the room
-        print("\nYou see:\n")
+        print("\nI saw:\n")
         if (len(self.items) < 1):
             print("Nothing of note.")
         else:
@@ -49,13 +49,13 @@ class Room(object):
                 if (item["taken"] is False):
                     items_to_take.append(item)
                     print("{}. Take {}".format(counter, item["name"]))
-                print("0. Don't take anything")
+                print("0. I didn't take anything")
             
             choice = self.try_int_input("> ")
 
             if choice > 0 and choice - 1 < len(items_to_take):
                 # Take that item
-                print("Took {}.".format(items_to_take[choice - 1]["name"]))
+                print("I took the {}.".format(items_to_take[choice - 1]["name"]))
             elif choice == 0:
                 # Go back to room description
                 self.enter()
@@ -65,7 +65,20 @@ class Room(object):
                 self.list_items()
 
     def list_exits(self):
-        print("From here, you can move to:")
+        print("From here, I moved to:")
         for exit in self.exits:
-            print(exit)
             print("{}. {}".format(exit["id"], exit["name"]))
+        print("0. On second thought, I wasn't done here just yet.")
+
+        choice = self.try_int_input("> ") 
+        
+        if choice > 0 and choice - 1 < len(self.exits):
+            # Go to that room
+            pass
+        elif choice == 0:
+            # Go back to room description
+            self.enter()
+        else:
+            # Display an error
+            print("Wait, that's not what I did.")
+            self.list_exits()
