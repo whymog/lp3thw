@@ -12,7 +12,7 @@ config = {
     'version': '0.1',
     'install_requires': ['nose'],
     'packages': ['ex46'],
-    'scripts': [],
+    'scripts': ['./bin/test_script.py'],
     'name': 'Ex 46'
 }
 
