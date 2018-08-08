@@ -45,8 +45,6 @@ def scan(stuff):
                 # If it's not a number append as an error
                 result.append(('error', word))
 
-    print(result)
-
     # Return the result
     return result
 
