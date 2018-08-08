@@ -42,3 +42,18 @@ def test_errors():
     assert_equal(result, [('noun', 'bear'),
                           ('error', 'IAS'),
                           ('noun', 'princess')])
+
+def test_a_bunch():
+    assert_equal(lexicon.scan("west kill from cabinet the go east"),
+                             [('direction', 'west'),
+                              ('verb', 'kill'),
+                              ('stop', 'from'),
+                              ('noun', 'cabinet'),
+                              ('stop', 'the'),
+                              ('verb', 'go'),
+                              ('direction', 'east')])
+
+def test_case():
+    assert_equal(lexicon.scan("NORTH"), [('direction', 'north')])
+    assert_equal(lexicon.scan("frOM prINcEsS"), [('stop', 'from'),
+                                                 ('noun', 'princess')])

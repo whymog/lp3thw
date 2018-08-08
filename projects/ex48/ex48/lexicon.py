@@ -33,7 +33,7 @@ def scan(stuff):
         found = False
 
         for term in lexicon:
-            if word == term[1]:
+            if word.lower() == term[1].lower():
                 result.append(term)
                 found = True
 
