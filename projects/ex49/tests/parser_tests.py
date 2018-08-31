@@ -1,5 +1,5 @@
 from nose.tools import *
-from ex48 import parser
+from ex49 import parser
 
 
 def test_match():
@@ -30,4 +30,4 @@ def test_parse_subject():
 
 def test_parse_sentence():
     assert_equal(parser.parse_sentence([('noun', 'butterfly'), ('stop', 'of'), ('verb', 'drinks'), ('noun', 'soup')]), 
-                 parser.Sentence(, 'noun', 'butterfly'), ('verb', 'drinks'), ('noun', 'soup'))
+                 parser.Sentence(('noun', 'butterfly'), ('verb', 'drinks'), ('noun', 'soup')))
